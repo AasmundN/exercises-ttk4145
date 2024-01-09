@@ -1,6 +1,6 @@
-CC = gcc
+CC = clang
 
-CFLAGS = -Wall -g -std=gnu99 
+CFLAGS = -Wall 
 LDFLAGS = -lpthread -g
 SRC = main.c ringbuf.c
 
