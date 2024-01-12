@@ -15,14 +15,12 @@ func producer(buffer chan int) {
 }
 
 func consumer(buffer chan int) {
-
 	time.Sleep(1 * time.Second)
 	for {
 		i := <-buffer //TODO: get real value from buffer
 		fmt.Printf("[consumer]: %d\n", i)
 		time.Sleep(50 * time.Millisecond)
 	}
-
 }
 
 func main() {

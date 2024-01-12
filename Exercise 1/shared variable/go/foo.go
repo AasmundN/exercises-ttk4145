@@ -55,7 +55,7 @@ func main() {
 
 	go server(operation)
 
-	// make sure
+	// wait for the two goroutines to finish
 	<-finish
 	<-finish
 
