@@ -68,6 +68,16 @@ void *sender(void *args)
 
 int main(int argc, char *argv[])
 {
+  int count = 0;
+  while (argv[++count] != NULL)
+    ;
+
+  if (count != 2)
+  {
+    perror("argc: missing argument");
+    return -1;
+  }
+
   pthread_t reciever_thread, sender_thread;
 
   pthread_create(&reciever_thread, NULL, reciever, "Reciever thread");
