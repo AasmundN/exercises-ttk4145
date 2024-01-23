@@ -9,10 +9,12 @@
 #define MSG_MAX_LEN 100
 #define PORT 20004
 
-void *reciever() {
+void *reciever()
+{
   int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
-  if (0 > sock) {
+  if (0 > sock)
+  {
     perror("Socket");
     exit(-1);
   }
@@ -22,7 +24,8 @@ void *reciever() {
   addr.sin_family = AF_INET;
   addr.sin_port = htons(PORT);
 
-  if (0 > bind(sock, (struct sockaddr *)&addr, sizeof(addr))) {
+  if (0 > bind(sock, (struct sockaddr *)&addr, sizeof(addr)))
+  {
     perror("Bind");
     exit(-1);
   }
@@ -38,10 +41,12 @@ void *reciever() {
   return NULL;
 }
 
-void *sender(void *args) {
+void *sender(void *args)
+{
   int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
-  if (0 > sock) {
+  if (0 > sock)
+  {
     perror("Sock");
     exit(-1);
   }
@@ -52,7 +57,8 @@ void *sender(void *args) {
   addr.sin_port = htons(PORT);
   addr.sin_addr.s_addr = inet_addr("10.100.23.129");
 
-  if (0 > sendto(sock, (char *)args, strlen((char *)args), 0, (struct sockaddr *)&addr, sizeof(addr))) {
+  if (0 > sendto(sock, (char *)args, strlen((char *)args), 0, (struct sockaddr *)&addr, sizeof(addr)))
+  {
     perror("sendto");
     exit(-1);
   }
@@ -62,12 +68,14 @@ void *sender(void *args) {
   return NULL;
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
   int count = 0;
   while (argv[++count] != NULL)
     ;
 
-  if (count != 2) {
+  if (count != 2)
+  {
     perror("argc: missing argument");
     return -1;
   }
