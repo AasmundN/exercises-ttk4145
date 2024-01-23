@@ -8,9 +8,11 @@ int i = 0;
 pthread_mutex_t mutex;
 
 // Note the return type: void*
-void *incrementingThreadFunction() {
+void *incrementingThreadFunction()
+{
   // TODO: increment i 1_000_000 times
-  for (int j = 0; j < 1000000; j++) {
+  for (int j = 0; j < 1000000; j++)
+  {
     pthread_mutex_lock(&mutex);
     i++;
     pthread_mutex_unlock(&mutex);
@@ -19,9 +21,11 @@ void *incrementingThreadFunction() {
   return NULL;
 }
 
-void *decrementingThreadFunction() {
+void *decrementingThreadFunction()
+{
   // TODO: decrement i 1_000_000 times
-  for (int j = 0; j < 1000000; j++) {
+  for (int j = 0; j < 1000000; j++)
+  {
     pthread_mutex_lock(&mutex);
     i--;
     pthread_mutex_unlock(&mutex);
@@ -30,7 +34,8 @@ void *decrementingThreadFunction() {
   return NULL;
 }
 
-int main() {
+int main()
+{
   // TODO:
   // start the two functions as their own threads using `pthread_create`
   // Hint: search the web! Maybe try "pthread_create example"?

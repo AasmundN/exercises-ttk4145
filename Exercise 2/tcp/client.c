@@ -37,11 +37,11 @@ int main()
     return -1;
   }
 
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < 1; i++)
   {
     sleep(1);
 
-    char msg[] = "Connect to: 10.22.19.162:42069";
+    char msg[] = "Connect to: 10.100.23.14:42069";
     // msg[0] = i + '0';
 
     if (0 > sendto(sock, msg, sizeof(msg), 0, (struct sockaddr *)&addr, sizeof(addr)))
